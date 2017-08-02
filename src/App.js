@@ -4,6 +4,17 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    imageUrl: null,
+    isHotdog: false
+  }
+
+  componentWillMount() {
+    firebase.database().ref('/uploads').on('value', snapshot => {
+      this.setState( {isHotdog: snapshot.val().photo.isHotdog} )
+    })
+  }
+
   render() {
     return (
       <div className="App">
