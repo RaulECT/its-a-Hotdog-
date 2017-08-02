@@ -15,6 +15,20 @@ class App extends Component {
     })
   }
 
+  handleUpload = ( event ) => {
+    const file = event.target.files[0]
+
+    return firebase.database().ref('/uploads/photo').set({
+      isHotdog: false
+    })
+    .then( data => {
+      return firebase.storage().ref(`/uploads/${file.name}`).put(file)
+      .then( snapshot => {
+        this.setState( {imageUrl: snapshot.metadata.downloadURLs[0]} )
+      } )
+    } )
+  }
+
   render() {
     return (
       <div className="App">
