@@ -10,10 +10,11 @@ class App extends Component {
   }
 
   componentWillMount() {
-    firebase.database().ref('/uploads').on('value', snapshot => {
-      this.setState( {isHotdog: snapshot.val().photo.isHotdog} )
+    firebase.database().ref('/uploads/').on('value', snapshot => {
+      this.setState({ isHotdog: snapshot.val().photo.isHotdog })
     })
   }
+
 
   handleUpload = ( event ) => {
     const file = event.target.files[0]
@@ -29,16 +30,39 @@ class App extends Component {
     } )
   }
 
+  renderHeaderHotdog() {
+    return(
+      <header>
+        Its hot dog 🌭!
+      </header>
+    )
+  }
+
+  renderHeaderNotHotDog() {
+    return(
+      <header>
+        Not Hotdog! ❌
+      </header>
+    )
+  }
+
   render() {
+    console.log(this.state);
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {this.state.isHotdog ? this.renderHeaderHotdog() : this.renderHeaderNotHotDog()}
+
+        <label htmlFor="inputElement">📷</label>
+        <input
+          id="inputElement"
+          type="file"
+          onChange={this.handleUpload}
+          ref={node => this.inputElement = node}
+        />
+
+        <figure>
+          <img src={this.state.imageUrl} />
+        </figure>
       </div>
     );
   }
