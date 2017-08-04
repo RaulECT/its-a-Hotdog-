@@ -32,38 +32,63 @@ class App extends Component {
 
   renderHeaderHotdog() {
     return(
-      <header>
-        Its hot dog 🌭!
-      </header>
+      <div className="photo">
+        <img src={this.state.imageUrl} />
+
+        <span className="true">
+          It´s a Hot dog ✅
+        </span>
+      </div>
     )
   }
 
   renderHeaderNotHotDog() {
     return(
-      <header>
-        Not Hotdog! ❌
-      </header>
+      <div className="photo false">
+        <img src={this.state.imageUrl} />
+
+        <span className="true">
+          It´s not a Hot dog ❌ !
+        </span>
+      </div>
+
     )
   }
 
   render() {
     console.log(this.state);
     return (
-      <div className="App">
-        {this.state.isHotdog ? this.renderHeaderHotdog() : this.renderHeaderNotHotDog()}
+      <div>
+        <header>
+          <h1>It´s or not a Hot Dog 🌭 !</h1>
+        </header>
 
-        <label htmlFor="inputElement">📷</label>
-        <input
-          id="inputElement"
-          type="file"
-          onChange={this.handleUpload}
-          ref={node => this.inputElement = node}
-        />
+        <section>
+          {this.state.isHotdog ? this.renderHeaderHotdog() : this.renderHeaderNotHotDog()}
 
-        <figure>
-          <img src={this.state.imageUrl} />
-        </figure>
+          <div>
+            <span className="label">
+              <label htmlFor="input">Add your photo! 📷</label>
+            </span>
+
+            <input
+              id="input"
+              type="file"
+              className="input-file"
+              onChange={this.handleUpload}
+              ref={node => this.inputElement = node} />
+          </div>
+
+          <footer>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Veritatis nesciunt vitae quisquam laborum eveniet non labore
+            consequuntur totam architecto rem voluptatibus autem, quidem,
+            illo dolorum magnam perspiciatis perferendis explicabo exercitationem!
+          </footer>
+        </section>
       </div>
+
+
     );
   }
 }

@@ -1,24 +1,68 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+*, body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+header{
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 35px 0;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+section {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-betwen;
+  align-content: center;
+  align-items: center;
+  padding: 20px 0;
 }
 
-.App-intro {
-  font-size: large;
+.photo {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-betwen;
+  align-content: center;
+  align-items: center;
+  width: 100vh;
+  background: #2E7D32;
+
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.photo img {
+  position: relative;
+  opacity: 0.5;
+  width: 100%;
+}
+
+.photo span {
+  position: absolute;
+  top: 100vh;
+  color: #fff;
+  font-size: 35px;
+}
+
+.false {
+  background: #D50000;
+}
+
+.input-file {
+  margin-top: 10px;
+  display: none;
+
+}
+
+.label {
+  align-self: flex-end;
+  font-size: 20px;
+}
+
+footer {
+  font-size:8px;
+  margin-top: 20px;
 }
