@@ -1,4 +1,4 @@
-It´s or not a Hot dog 🌭 !
+## It´s or not a Hot dog 🌭 !
 
 This react application can help you to know if your photo is or not a Hot dog, thanks to Google Cloud Vision API and Firebase functions this app analize your photo and tell you if it´s a hot dog or not. Enjoy it :) 
 
